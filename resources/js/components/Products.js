@@ -18,7 +18,6 @@
         axios.get('/api/products').then(response => {
           this.setState({
             products: response.data,
-            cartCount: 0
           })
         })
 
@@ -30,7 +29,7 @@
           <div className='container '>
             <div className='row'>
             {products.map((product,index)=> (
-              <div className='col col-sm-3' key={index}>
+              <div className='col-6' key={index}>
                 <div className='card'>
                   <div className='card-header'>All Products</div>
 
@@ -58,16 +57,14 @@
             <Link
                 className='btn btn-success'
                 to='/cart'
-                >Make Order {this.state.cartCount} </Link>
+                >Make Order</Link>
                 </div>
         </div>
         )
       }
 
       handleAddToCart(e){
-        this.setState({
-            cartCount: this.state.cartCount + 1
-          });
+
         e.preventDefault()
         const productId = e.target.value
         axios.post(`/api/products/${productId}`)
@@ -75,9 +72,8 @@
             console.log(response.data)
           })
           .catch(error => {
-            this.setState({
-              errors: error.response.data.errors
-            })
+            console.log(error.message);
+
           })
 
         }

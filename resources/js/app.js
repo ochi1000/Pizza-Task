@@ -12,4 +12,26 @@ require('./bootstrap');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-require('./components/App');
+$('.addToCart').click(function(e) {
+    console.log('testing');
+    var productId = $(this);
+
+    $.ajaxSetup({
+        headers: {
+          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+      });
+
+    $.ajax({
+        url: '/add-to-cart',
+        type: 'POST',
+        data: {id: productId.attr("data-id")},
+        success: function (response) {
+        alert(response);
+        },
+        error: function(XMLHttpRequest, textStatus, errorThrown) {
+            console.log(errorThrown);
+         }
+    });
+
+});

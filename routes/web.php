@@ -20,10 +20,11 @@ Route::get('/admin','Admin\DashboardController@show','dashboard');
 Route::get('/admin/products','Admin\ProductController@show','product');
 Route::post('/admin/products/create','Admin\ProductController@create','create_product');
 
-Route::get('/cart', 'Cart@show');
-Route::patch('update-cart', 'Cart@update');
-Route::delete('remove-from-cart', 'Cart@remove');
+Route::get('/', 'CartController@showProducts')->name('products');
 
-Route::post('/order', 'Cart@order');
+Route::get('/cart', 'CartController@show');
+Route::post('/add-to-cart', 'CartController@addToCart');
+Route::post('update-cart', 'CartController@update');
 
-Route::view('/{path?}', 'layouts.app');
+Route::post('/order', 'OrderController@makeOrder');
+Route::get('/complete', 'OrderController@completedOrder');

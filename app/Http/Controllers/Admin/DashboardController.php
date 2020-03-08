@@ -19,7 +19,7 @@ class DashboardController extends Controller
     }
 
     public function show(){
-        return view('admin.dashboard', ['products' => $this->products]);
+        return view('admin.dashboard', ['products' => $this->products, 'orders'=> $this->orders]);
     }
 
 }

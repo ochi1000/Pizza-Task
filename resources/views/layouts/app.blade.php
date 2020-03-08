@@ -8,10 +8,20 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
 </head>
 <body>
-    <div id="app"></div>
-    @yield('content')
+    <div>
+        <nav class='navbar navbar-expand-md navbar-light'>
+            <div class='container'>
+            <a class='navbar-brand'>Pizzeria</a>
+            </div>
+        </nav>
+
+        @yield('content')
+    </div>
+    @yield('scripts')
     <script src="{{ asset('js/app.js') }}"></script>
+
 </body>
 </html>

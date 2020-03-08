@@ -19,8 +19,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get('products', 'ProductController@show');
 
-Route::post('products/{id}', 'Cart@addToCart');
-
-Route::get('/cart', 'Cart@show');
-// Route::patch('update-cart', 'ProductsController@update');
-// Route::delete('remove-from-cart', 'ProductsController@remove');
+Route::post('products/{id}', 'CartController@addToCart');
