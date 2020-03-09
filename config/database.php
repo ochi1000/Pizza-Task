@@ -69,7 +69,7 @@ return [
             'port' => $DATABASE_URL['port'],
             'database' => ltrim($DATABASE_URL['path'], '/'),
             'username' => $DATABASE_URL['user'],
-            'password' => $DATABASE_URL['password'],
+            'password' => 'd9e49e85c25960b3243f4f3147ff970126dee7b2f682cdb3a0405cd06a37466c',
             'charset' => 'utf8',
             'prefix' => '',
             'prefix_indexes' => true,
