@@ -20,9 +20,9 @@ class CartController extends Controller
 
         $cart = Cart::content();
         $cartTotal = Cart::subtotal();
-        // if($cart->isEmpty()){
-        //     return redirect('/');
-        // }
+        if($cart->isEmpty()){
+            return redirect('/');
+        }
         return view('cart', ['cart' => $cart, 'cartTotal' => $cartTotal]);
     }
 
